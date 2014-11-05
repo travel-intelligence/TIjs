@@ -1,0 +1,19 @@
+{
+  "name": "TIjs",
+  "version": "0.1",
+  "homepage": "https://github.com/travel-intelligence/TIjs",
+  "authors": [
+    "Sebastien Perez <sebastien.perez@amadeus.com>"
+  ],
+  "description": "Javascript Library to simplify access to Travel Intelligence Web Services",
+  "main": "TI.js",
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
