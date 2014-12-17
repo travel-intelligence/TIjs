@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <script src="bower_components/jquery/dist/jquery.js"></script>
+    <script src="TI.js"></script>
+    <script>
+        $(document).ready(function() {
+
+            //Start of library
+            var TIlogin = function(email, pass, callback) {
+                $.ajax({
+                    type: "POST",
+                    url: "https://www.travel-intelligence.com/api/v1/session",
+                    data: {
+                        "session": {
+                            "email": email,
+                            "password": pass
+                        }
+                    }
+                }).done(function(msg) {
+                    token = msg.session.auth_token
+                    callback(token)
+                })
+            }
+
+            //Logout
+            var TIlogout = function(callback) {
+                //Logged out
+                $.ajax({
+                    type: "DELETE",
+                    url: "https://www.travel-intelligence.com/api/v1/session",
+                    headers: {
+                        "Authorization": "Token " + token
+                    }
+                }).done(function(msg) {
+                    callback()
+                });
+            }
+
+            var TIcall = function(token, service, params, callback) {
+
+                url = "https://www.travel-intelligence.com/";
+	        url += service
+                url += Object.keys(params).map(function(k) {
+                    return encodeURIComponent(k) + '=' + encodeURIComponent(params[k])
+                }).join('&')
+
+                $.ajax({
+                    type: "GET",
+                    url: url,
+                    headers: {
+                        "Authorization": "Token " + token
+                    }
+                }).done(function(msg) {
+                    callback()
+                });
+            }
+
+            var token = ""
+
+            //Authenticating
+            $("#login").click(function() {
+                TIlogin($("#email").val(), $("#pass").val(), function(token) {
+                    alert(token)
+                })
+            });
+
+            $("#logout").click(function() {
+                TIlogout(function() {
+                    alert("logged out")
+                })
+            });
+
+            $("#available").click(function() {
+                TIcall(token,"api/v1/airline_searches",{q:"iberia",limit:3},function(msg) {
+                    alert(JSON.stringify(msg));
+                });
+            })
+
+
+        })
+    </script>
+</head>
+
+<body>
+
+    <h1>TI.js Library</h1>
+
+    <label for="">Email:</label>
+    <input id="email" name="" type="text" value="" />
+    <br/>
+    <label for="">Password:</label>
+    <input id="pass" name="" type="password" value="" />
+    <br/>
+    <button id="login">Log in</button>
+    <button id="logout">Log out</button>
+    <button id="available">Available</button>
+
+</body>
+
+</html>
