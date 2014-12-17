@@ -1,8 +1,8 @@
-== Overview ==
+## Overview
 
    TI.js follows the noBackend philosophy and allows you to use in an easier way the Travel Intelligence Web Services.
 
-== API ==
+## API
 
 Use login to log into the Travel Intelligence Platform:
 
@@ -28,7 +28,7 @@ TI.callWS("api/v1/airline_searches",{q:"iberia",limit:3},function(msg) {
                 });
 ```
 
-== TODO ==
+## TODO
 
 * Configure the backend
 * Unit Tests
