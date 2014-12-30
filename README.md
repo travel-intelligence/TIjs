@@ -8,7 +8,6 @@ Use configure to change the backend (it uses beta-api as the default backend):
 
 ```javascript
 TI.configure("https://api.travel-intelligence.com/")
- })
 ```
 
 Use login to log into the Travel Intelligence Platform:
