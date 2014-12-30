@@ -1,6 +1,6 @@
 ## Overview
 
-   TI.js follows the noBackend philosophy and allows you to use in an easier way the Travel Intelligence Web Services.
+   TI.js follows the noBackend philosophy and allows you to use in an easier way the Travel Intelligence Web Services. The whole Travel Intelligence API is described in the official Web site: http://dev.travel-intelligence.com/
 
 ## API
 
