@@ -7,6 +7,8 @@
     <script>
         $(document).ready(function() {
 
+	TI.configure("https://api.travel-intelligence.com/")
+
             //Authenticating
             $("#login").click(function() {
                 TI.login($("#email").val(), $("#pass").val(), function(token) {

@@ -6,11 +6,16 @@
         var TILibrary = {};
 
         TILibrary.token = ""
+	TILibrary.backend = "https://beta-api.travel-intelligence.com/"
 
-        TILibrary.login = function(email, pass, callback) {
+	TILibrary.configure = function(backend) {
+	    TILibrary.backend = backend;
+        }
+
+	TILibrary.login = function(email, pass, callback) {
             $.ajax({
                 type: "POST",
-                url: "https://api.travel-intelligence.com/api/v1/session",
+                url: TILibrary.backend + "api/v1/session",
                 data: {
                     "session": {
                         "email": email,
@@ -30,7 +35,7 @@
             //Logged out
             $.ajax({
                 type: "DELETE",
-                url: "https://api.travel-intelligence.com/api/v1/session",
+                url: TILibrary.backend + "api/v1/session",
                 headers: {
                     "Authorization": "Token " + TILibrary.token
                 }
@@ -40,7 +45,7 @@
         }
 
         TILibrary.callWS = function(service, params, callback) {
-            var url = "https://api.travel-intelligence.com/";
+            var url = TILibrary.backend;
             url += service + "?"
             url += Object.keys(params).map(function(k) {
                 return encodeURIComponent(k) + '=' + encodeURIComponent(params[k])
