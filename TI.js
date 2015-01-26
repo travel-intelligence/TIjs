@@ -1,5 +1,9 @@
 'use strict';
 
+//The library is compliant with requirejs
+//http://stackoverflow.com/questions/17524364/make-my-javascript-function-requirejs-amd-friendly
+//http://stackoverflow.com/questions/15613577/correct-way-to-implement-jquery-with-require-js/15649611
+
 (function(module) {
     if (typeof define === "function" && define.amd) {
         define("tiapi",['jquery'], function($) {
