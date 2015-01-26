@@ -2,11 +2,11 @@
 
 (function(module) {
     if (typeof define === "function" && define.amd) {
-        define(function() {
-            return module;
+        define("tiapi",['jquery'], function($) {
+            return module.define_TILibrary();
         });
     } else {
-        window.TI = module.myfunction;
+        window.TI = module.define_TILibrary();
     }
 }({
     define_TILibrary: function() {
