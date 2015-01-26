@@ -6,7 +6,7 @@
             return module;
         });
     } else {
-        window.myfunction = module.myfunction;
+        window.TI = module.myfunction;
     }
 }({
     define_TILibrary: function() {
