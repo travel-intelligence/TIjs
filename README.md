@@ -2,6 +2,8 @@
 
    TI.js follows the noBackend philosophy and allows you to use in an easier way the Travel Intelligence Web Services. The whole Travel Intelligence API is described in the official Web site: http://dev.travel-intelligence.com/
 
+The library is now fully compliant with Requirejs.
+
 ## API
 
 Use configure to change the backend (it uses beta-api as the default backend):
