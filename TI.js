@@ -6,7 +6,7 @@
 
 (function(module) {
     if (typeof define === "function" && define.amd) {
-        define("tiapi",['jquery'], function($) {
+        define("tiapi", ['jquery'], function($) {
             return module.define_TILibrary();
         });
     } else {
@@ -59,10 +59,13 @@
 
         TILibrary.callWS = function(service, params, callback) {
             var url = TILibrary.backend;
-            url += service + "?"
-            url += Object.keys(params).map(function(k) {
-                return encodeURIComponent(k) + '=' + encodeURIComponent(params[k])
-            }).join('&')
+            url += service
+
+            if (params) {
+                url += "?" + Object.keys(params).map(function(k) {
+                    return encodeURIComponent(k) + '=' + encodeURIComponent(params[k])
+                }).join('&')
+            }
 
             $.ajax({
                 type: "GET",
