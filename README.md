@@ -1,8 +1,14 @@
 ## Overview
 
-   TI.js follows the noBackend philosophy and allows you to use in an easier way the Travel Intelligence Web Services. The whole Travel Intelligence API is described in the official Web site: http://dev.travel-intelligence.com/
+TI.js follows the noBackend philosophy and allows you to use in an easier way the Travel Intelligence Web Services. The whole Travel Intelligence API is described in the official Web site: http://dev.travel-intelligence.com/
 
 The library is now fully compliant with Requirejs.
+
+## Installation
+
+You can install the library with bower:
+
+    bower install --save travel-intelligence/TIjs
 
 ## API
 
