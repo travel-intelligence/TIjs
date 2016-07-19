@@ -24,6 +24,10 @@
         TILibrary.configure = function(backend) {
             TILibrary.backend = backend;
         }
+        
+        TILibrary.setToken = function(token) {
+            TILibrary.token = token;
+        }
 
         TILibrary.login = function(email, pass, callback) {
             $.ajax({
@@ -73,8 +77,12 @@
                 headers: {
                     "Authorization": "Token " + TILibrary.token
                 }
-            }).done(function(msg) {
-                callback(msg)
+            })
+            .done(callback)
+            .fail(function(error) {
+                if (errorCallback){
+                  errorCallback(error)
+                }
             });
         }
 
