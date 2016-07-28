@@ -61,7 +61,7 @@
             });
         }
 
-        TILibrary.callWS = function(service, params, callback) {
+        TILibrary.callWS = function(service, params, callback, errorCallback) {
             var url = TILibrary.backend;
             url += service
 
